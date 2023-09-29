@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>TypeScript Intro</title>
+    <script src="../build/compiled.js"></script>
+  </head>
+  <body>
+    <form
+      onsubmit="
+        intro.main1(
+          this.querySelector('#input1').value,
+          this.querySelector('#input2').value,
+          this.querySelector('#output')
+        );
+        // if you're seeing an error on this return, ignore it - VSCode has a bug
+        // (https://github.com/microsoft/vscode/issues/143220)
+        return false;
+      "
+    >
+      <div>
+        <label for="input1">Input 1:</label>
+        <input id="input1" type="text"></input>
+      </div>
+      <div>
+        <label for="input2">Input 2:</label>
+        <input id="input2" type="text"></input>
+      </div>
+      <input type="submit" value="Run main function"></input>
+      <div>Output: <span id="output"></span></div>
+    </form>
+  </body>
+</html>
