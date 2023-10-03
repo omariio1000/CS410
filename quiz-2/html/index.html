@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>TypeScript Intro</title>
+    <script src="../build/compiled.js"></script>
+  </head>
+  <body>
+    <form
+      onsubmit="
+        intro.main1(this.querySelector('#output'));
+        // if you're seeing an error on this return, ignore it - VSCode has a bug
+        // (https://github.com/microsoft/vscode/issues/143220)
+        return false;
+      "
+    >
+      <input type="submit" value="Run main1" />
+      <p>Output: <span id="output"></span></p>
+    </form>
+  </body>
+</html>

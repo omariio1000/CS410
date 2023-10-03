@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "lib": [ "ES6", "DOM" ],
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "typedocOptions": {
+    "name": "TypeScript Intro",
+    "entryPoints": ["src"],
+    "entryPointStrategy": "expand",
+    "out": "docs"
+  }
+}
