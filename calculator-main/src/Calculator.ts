@@ -190,4 +190,12 @@ export class Calculator {
     this.lcd = '0';
     this.overwrite = true;
   }
+
+  cube(): void {
+    this.lcd = (Math.pow(parseFloat(this.lcd), 3)).toString();
+  }
+
+  percent(): void {
+    this.lcd = (parseFloat(this.lcd)/100.0).toString();
+  }
 }
