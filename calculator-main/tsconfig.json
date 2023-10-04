@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "node_modules/jest-extended/types/**/*.d.ts"
+  ],
+  "typedocOptions": {
+    "name": "Four Function Calculator",
+    "entryPoints": ["src"],
+    "entryPointStrategy": "expand",
+    "out": "docs"
+  }
+}
