@@ -6,25 +6,127 @@
   "configurations": [
     {
       "name": "Debug in Chrome",
-      "preLaunchTask": "npm: build",
       "type": "pwa-chrome",
       "request": "launch",
+      "reAttach": true,
       "file": "${fileDirname}/../html/index.html",
       "outFiles": [
-        "${fileDirname}/../build/*.js"
+        "${fileDirname}/..//build/*.js"
       ],
       "webRoot": "${fileDirname}/../",
+      "suggestPathMappingWizard": true,
+      "pathMappings": [
+        {
+          "url": "webpack:///src",
+          "path": "${fileDirname}/..//src"
+        },
+        {
+          "url": "webpack:///~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./",
+          "path": "${webRoot}/"
+        },
+        {
+          "url": "webpack:///src/",
+          "path": "${webRoot}/src/"
+        },
+        {
+          "url": "webpack:///node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///webpack",
+          "path": null
+        },
+        {
+          "url": "webpack:///(webpack)",
+          "path": null
+        },
+        {
+          "url": "webpack:///pages/",
+          "path": "${webRoot}/pages/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/",
+          "path": null
+        },
+        {
+          "url": "webpack:///",
+          "path": ""
+        }
+      ]
     },
     {
       "name": "Debug in Edge",
       "type": "pwa-msedge",
-      "preLaunchTask": "npm: build",
       "request": "launch",
-      "file": "${fileDirname}/../html/index.html",
+      "reAttach": true,
+      "file": "${fileDirname}/..//html/index.html",
       "outFiles": [
-        "${fileDirname}/../build/*.js"
+        "${fileDirname}/..//build/*.js"
       ],
       "webRoot": "${fileDirname}/../",
+      "suggestPathMappingWizard": true,
+      "pathMappings": [
+        {
+          "url": "webpack:///src",
+          "path": "${fileDirname}/..//src"
+        },
+        {
+          "url": "webpack:///~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./",
+          "path": "${webRoot}/"
+        },
+        {
+          "url": "webpack:///src/",
+          "path": "${webRoot}/src/"
+        },
+        {
+          "url": "webpack:///node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///webpack",
+          "path": null
+        },
+        {
+          "url": "webpack:///(webpack)",
+          "path": null
+        },
+        {
+          "url": "webpack:///pages/",
+          "path": "${webRoot}/pages/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/",
+          "path": null
+        },
+        {
+          "url": "webpack:///",
+          "path": ""
+        }
+      ]
     }
   ]
 }
