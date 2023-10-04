@@ -341,3 +341,21 @@ test('divide three different numbers', () => {
           expect(calc.lcd).toBe(((i / j) / k).toString());
       }
 });
+
+test('cube a number', () => {
+  for (let i of numbers) {
+    let calc = new Calculator();
+    calc.lcd = i.toString();
+    calc.cube();
+    expect(parseFloat(calc.lcd)).toBe(i * i * i);
+  }
+});
+
+test('percent of a number', () => {
+  for (let i of numbers) {
+    let calc = new Calculator();
+    calc.lcd = i.toString();
+    calc.percent();
+    expect(parseFloat(calc.lcd)).toBe(i / 100.0);
+  }
+});
