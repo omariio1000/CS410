@@ -192,13 +192,13 @@ export class Calculator {
   }
 
   cube(): void {
-    this.lcd = (Math.pow(parseFloat(this.lcd), 3)).toString();
+    this.lcd = Math.pow(parseFloat(this.lcd), 3).toString();
     this.repeat = false;
     this.overwrite = true;
   }
 
   percent(): void {
-    this.lcd = (parseFloat(this.lcd)/100.0).toString();
+    this.lcd = (parseFloat(this.lcd) / 100.0).toString();
     this.repeat = false;
     this.overwrite = true;
   }

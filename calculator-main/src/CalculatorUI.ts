@@ -48,12 +48,12 @@ export class CalculatorUI extends Calculator {
   }
 
   cube(): void {
-    super.cube()
+    super.cube();
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
-  
+
   percent(): void {
-    super.percent()
+    super.percent();
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
 }
