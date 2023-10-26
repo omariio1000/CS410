@@ -1,0 +1,5 @@
+1) One thing that makes this code hard to maintain is that it's impossible to add more rooms, as it's very limited what types of rooms you can leave or enter. I suggest that changes to allow any string, to allow more rooms to be added easily.
+
+2) There are almost no comments, which makes it difficult to understand what's happening for a lot of people. I personally prefer fewer comments, so I will be doing that.
+
+Those two simple yet important changes take the program from being very difficult to maintain to being very easy to add more to and understand if newly joining a team.
