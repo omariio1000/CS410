@@ -1,0 +1,7 @@
+1) The tabs aren't large enough, 4 spaces or just a tab character would make it more readable than 2 spaces
+	- This is my personal choice, come from heavy c/c++ background
+2) Room names are not very easy to understand; A, B, and C are pretty arbitrary
+3) Lots of text wider than the screen
+4) Not very consistent checking if have key or not have key
+
+The rest looks pretty good to me. I've had quite a bit of previous experience working with a lot of code written by other people that makes me fine with a lot of different styles. I'm pretty adaptable and can understand the gist of what the code is doing pretty easily
