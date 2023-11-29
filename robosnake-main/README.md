@@ -48,3 +48,7 @@ The codebase is organized into multiple modules within the `src` folder:
 - `GameScreen.ts` defines the `Cell` and `GameScreen` types, which represent "pixels" on the "game board".
 - `GameRunner.ts` defines the rules of the game, but **not** the behavior of the AI players.
 - `Agent.ts` defines the behavior of each AI player.
+
+
+## Extensibility
+In order to add a new agent, the user creates a class and extends the `playerMove` interface. You also need to define an `agentMove` passing in the `ScreenPart` argument.

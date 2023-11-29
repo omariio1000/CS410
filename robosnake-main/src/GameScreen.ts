@@ -7,6 +7,11 @@ export type Cell = Player | "empty" | "apple";
 // a GameScreen is an array of Cell arrays
 export type GameScreen = Cell[][]; // row-major order, should always have square dimensions
 
+/**
+ * Initialize the screen
+ * @param size Screen will be size * size
+ * @returns The screen storing the snakes, apples, and empty cells
+ */
 export function initialize(size: number): GameScreen {
   const screen = new Array<Cell[]>(size);
   for (let i = 0; i < size; i++)
@@ -14,6 +19,10 @@ export function initialize(size: number): GameScreen {
   return screen;
 }
 
+/**
+ * Draws the colors on the screen
+ * @param screen Screen object being colored
+ */
 export function draw(screen: GameScreen): void {
   for (let y = 0; y < screen.length; y++) {
     for (let x = 0; x < screen.length; x++) {

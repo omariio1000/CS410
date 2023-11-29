@@ -1,6 +1,6 @@
 import { MaybeCell, ScreenPart } from "./GameRunner";
 
-export type Player = "A" | "B" | "C" | "D";
+export type Player = "A" | "B" | "C" | "D"; 
 
 export type Motion = "up" | "down" | "left" | "right";
 
@@ -8,12 +8,21 @@ export type Motion = "up" | "down" | "left" | "right";
 const cCycle: Motion[] = ["up", "up", "right", "down", "right"];
 let cIndex: number = 0;
 
+/**
+ * Initializing the agent, only agent C currently has its own state
+ * @param player Player being initialized
+ */
 export function initializeAgent(player: Player): void {
   // only agent C has its own state (for now)
   if (player == "C") cIndex = 0;
 }
 
-// screenPart is a 5x5 window with the agent in the center
+/**
+ * Moves the agent in accordance to the type it is
+ * @param player Agent that is being moved
+ * @param screenPart 5x5 window with the agent in the center
+ * @returns The direction the agent moves in
+ */
 export function agentMove(player: Player, screenPart: ScreenPart): Motion {
   switch (player) {
     case "A": { // always move right
@@ -46,6 +55,11 @@ export function agentMove(player: Player, screenPart: ScreenPart): Motion {
   }
 }
 
+/**
+ * Moves in a random direction, tries not to hit anything
+ * @param part 5x5 window with the agent in the center
+ * @returns Direction to move
+ */
 export function randomMotion(part: ScreenPart): Motion {
   const rnd: number = Math.random() * 4; // random float in the half-open range [0, 4)
 
@@ -68,6 +82,12 @@ export function randomMotion(part: ScreenPart): Motion {
   return x;
 }
 
+/**
+ * Tries a move to check what is there
+ * @param m Which direction moving towards
+ * @param p 5x5 window with the agent in the center
+ * @returns Either Player, "apple", "empty", or "outside"
+ */
 function tryMove(m: Motion, p: ScreenPart): MaybeCell {
   // the snake is positioned in the center at p[2][2]
   switch (m) {

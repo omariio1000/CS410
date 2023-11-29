@@ -2,6 +2,9 @@ import { resetCanvas, updateApples, updateLost } from "./DrawingLibrary";
 import { run } from "./GameRunner";
 import { initialize } from "./GameScreen";
 
+/**
+ * Initializes screen and runs game, after resetting canvas and updating scores to zero
+ */
 export function play(): void {
   resetCanvas();
   updateLost("A", false); updateApples("A", 0);
