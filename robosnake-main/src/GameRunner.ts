@@ -1,4 +1,4 @@
-import { initializeAgent, Motion, agentMove } from "./Agent";
+import {  Motion, PlayerA, PlayerB, PlayerD, PlayerC } from "./Agent";
 import { scheduleNextUpdate, updateApples, updateLost } from "./DrawingLibrary";
 import { Cell, draw, GameScreen } from "./GameScreen";
 import { Player } from "./Agent"; 
@@ -81,10 +81,16 @@ export function getScreenPart(screen: GameScreen, s: SnakeState): ScreenPart {
  * @param screen Entire screen with all players and apples
  */
 export function run(stepTime: number, newApplesEachStep: number, screen: GameScreen): void {
-  initializeAgent("A");
-  initializeAgent("B");
-  initializeAgent("C");
-  initializeAgent("D");
+  const A = new PlayerA;
+  const B = new PlayerB;
+  const C = new PlayerC;
+  const D = new PlayerD;
+  const Players = {
+    playerA: A,
+    playerB: B,
+    playerC: C,
+    playerD: D
+  }
 
   // player initial positions
   const a = new SnakeState(0,0);
@@ -100,7 +106,7 @@ export function run(stepTime: number, newApplesEachStep: number, screen: GameScr
   draw(screen);
 
   // this will wait for stepTime milliseconds and then call step with these arguments
-  scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, a, b, c, d));
+  scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, a, b, c, d,Players));
   // the "() =>" part is important!
   // without it, step will get called immediately instead of waiting
 }
@@ -137,7 +143,8 @@ export function step(
   snakeA: SnakeState,
   snakeB: SnakeState,
   snakeC: SnakeState,
-  snakeD: SnakeState
+  snakeD: SnakeState,
+  Players: any // TODO: should give a proper type for this
 ): void {
   // generate new apples
   for (let i = 0; i < newApplesEachStep; i++) {
@@ -150,10 +157,10 @@ export function step(
   }
 
   // players take turns in order: A -> B -> C -> D -> A -> B -> C -> D -> ...
-  snakeMotion(screen,  snakeA, "A")
-  snakeMotion(screen,  snakeB, "B");
-  snakeMotion(screen,  snakeC, "C")
-  snakeMotion(screen,  snakeD, "D");
+  snakeMotion(screen,  snakeA, "A",Players.playerA)
+  snakeMotion(screen,  snakeB, "B",Players.playerB);
+  snakeMotion(screen,  snakeC, "C",Players.playerC)
+  snakeMotion(screen,  snakeD, "D",Players.playerD);
   
 
   // update game screen
@@ -167,7 +174,7 @@ export function step(
 
   // run again unless everyone has lost
   if (!snakeA.lost || !snakeB.lost || !snakeC.lost || !snakeD.lost)
-    scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, snakeA, snakeB, snakeC, snakeD));
+    scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, snakeA, snakeB, snakeC, snakeD, Players));
 }
 
 /**
@@ -176,9 +183,9 @@ export function step(
  * @param snake Snake being updated
  * @param letter Player letter
 */
-export function snakeMotion(snakeScreen: GameScreen, snake: SnakeState, letter: Player){
+export function snakeMotion(snakeScreen: GameScreen, snake: SnakeState, letter: Player, player: any){
   if (!snake.lost) {
-    const temp = locationAfterMotion(agentMove("D", getScreenPart(snakeScreen, snake)), snake);
+    const temp = locationAfterMotion(player.agentMove(getScreenPart(snakeScreen, snake)), snake);
     if (temp.x < 0 || temp.y < 0 || temp.x >= snakeScreen.length || temp.y >= snakeScreen.length) // hit the edge of the screen
       snake.lost = true;
     else
